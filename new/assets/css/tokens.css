@@ -1,0 +1,34 @@
+/* Design tokens: direction A 夕映え. Light only (dark mode intentionally not provided). */
+:root {
+  --color-bg: #FFF8F0;
+  --color-surface: #FFFFFF;
+  --color-text: #2B1B17;
+  --color-muted: #5E4A42;
+  --color-accent: #C2410C;
+  --color-accent-strong: #9A3412;
+  --color-border: #F0D9C6;
+  --color-input-border: #C9A98F;
+  --color-header-from: #B45309;
+  --color-header-mid: #C2410C;
+  --color-header-to: #9D174D;
+  --color-footer-bg: #2B1B17;
+  --color-footer-text: #F5E6D8;
+  --color-badge-bg: #FDE7D4;
+  --color-disabled-bg: #F6EDE4;
+  --color-restock: #1D4ED8;
+
+  --font-body: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-display: 'Shippori Mincho', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 56px;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --content-max: 1280px;
+}

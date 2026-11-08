@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>切手を探す | サンセットスタンプ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Shippori+Mincho:wght@600;800&display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/catalog.css">
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ</a>
+<header class="site-header">
+<a class="site-brand" href="index.html">サンセットスタンプ <small>海外切手の通信販売</small></a>
+<nav class="site-nav" aria-label="メインメニュー"><a href="index.html" aria-current="page">トップ</a><a href="news.html">おしらせ</a><a href="list/index.html">切手リスト・製品</a><a href="howtoorder.html">ご注文方法</a><a href="address.html">連絡先</a><a href="sys-tokuchou.html">当店について</a><details class="nav-more"><summary>その他</summary><div class="nav-more-panel"><a href="nyuukai.html">最新リスト謹呈</a><a href="lighthouse_info.htm">ライトハウス・JPS製品</a><a href="sys-hajimete.html">はじめてのお客様へ</a><a href="link.html">リンク</a></div></details></nav>
+<a class="cart-link" href="cart.html">カート（<span data-cart-count>0</span>）</a>
+</header>
+<main id="main" class="container">
+<div class="catalog">
+<section class="catalog-hero">
+<p class="eyebrow" id="hero-eyebrow">最近出荷された切手</p>
+<h1 id="page-title">切手を探す</h1>
+<p class="lead">価格はすべて税込です。1回のご注文は1,000円以上でお願いいたします。</p>
+</section>
+<noscript><p class="catalog-warning">切手の検索にはJavaScriptが必要です。<a href="list/index.html">切手リスト</a>からご覧ください。</p></noscript>
+<p id="catalog-fallback" class="catalog-warning" role="alert" hidden>検索データを読み込めませんでした。<a href="list/index.html">切手リスト</a>からご覧ください。</p>
+<p id="catalog-notice" class="catalog-warning" role="alert" hidden></p>
+<form id="catalog-form" class="filter-bar" role="search" aria-label="切手の絞り込み" novalidate>
+<div class="field"><label for="f-year">年代</label><select id="f-year"><option value="">すべての年代</option></select></div>
+<div class="field"><label for="f-country">国</label><select id="f-country"><option value="">すべての国</option></select></div>
+<div class="field field-grow"><label for="f-q">キーワード</label><input id="f-q" type="search" placeholder="例：蝶　国連" autocomplete="off"></div>
+<div class="field"><label for="f-min">価格（円）の下限</label><input id="f-min" type="number" min="0" step="10" inputmode="numeric" placeholder="0"></div>
+<div class="field"><label for="f-max">価格（円）の上限</label><input id="f-max" type="number" min="0" step="10" inputmode="numeric" placeholder="上限なし"></div>
+<label class="check-field" for="f-hide"><input id="f-hide" type="checkbox"> 売り切れを隠す</label>
+<button type="submit" class="btn btn-primary">この条件で探す</button>
+<button type="button" id="f-clear" class="btn btn-ghost">条件をクリア</button>
+</form>
+<section id="results-area" aria-label="検索結果">
+<div class="results-head">
+<p id="result-count" class="result-count" aria-live="polite"></p>
+<div class="field field-inline"><label for="f-sort">並び替え</label><select id="f-sort"><option value="new">新しい順</option><option value="priceAsc">価格の安い順</option><option value="priceDesc">価格の高い順</option></select></div>
+</div>
+<p id="results-empty" class="catalog-warning" hidden>該当する切手はありません。条件を変えてお試しください。</p>
+<div id="results" class="grid-cards" tabindex="-1"></div>
+<div id="more-wrap" class="more-wrap"></div>
+</section>
+<section class="prose notices" aria-labelledby="notices-title">
+<h2 id="notices-title">お知らせ・ご案内</h2>
+<IMG src="image/trav_l1.gif" alt="ライン"><BR>
+<BR>
+Welcome　to<BR>
+<BR>
+<IMG src="image/logo.gif" alt="sunset stamp"><IMG src="image/globa_ml1.gif"><BR>
+<BR>
+<I>外国切手の通信販売のページです</I><BR>
+<br><br>
+<IMG src="image/gazou-top/newyear2024_dragon_lux_2010_400.jpg" alt="2010年ルクセンブルク発行"
+
+ onMouseOver="this .src='image/gazou-top/newyear2024_dragon_lux_2010_400.jpg'"
+onMouseOut="this .src='image/gazou-top/newyear2024_dragon_lux_2010_400.jpg'">
+<br><br>
+2010年CEPT ルクセンブルク発行<br>
+<br>
+★夏の JPS製品のセール 開催中★<br>
+<br>
+毎年7月のJPS製品セールは<br>
+今年は<b>6月</b>に開催されています。<br>
+受付〆切は　<b>6月27日まで</B>と<br>
+させて頂きます。<br>
+ご注文は、電話ではなく<br>
+メール、FAX、郵便にてお願い致します。<br>
+<br>
+
+<br>
+<div class="table-scroll" role="region" aria-label="表" tabindex="0"><TABLE cellspacing="0" cellpadding="10">
+    <TR>
+      <TD>
+      <B><A href="news.html"><IMG src="image/z_03_m3.gif"><BR>
+      おしらせ</A></B><BR>
+      <span class="restock">（2023.03.07）</span><BR>
+      </TD>
+      <TD>
+      <B><A href="sys-tokuchou.html"><IMG src="image/z_03_m3.gif"><BR>
+      当店について</A></B><BR>
+      <BR>
+      </TD>
+      <TD>
+      <B><A href="nyuukai.html"><IMG src="image/z_03_m3.gif"><BR>
+      最新リスト謹呈</A></B><BR>
+      <span class="restock">メンバー登録もこちらから</span><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD>
+      <B><A href="list/index.html"><IMG src="image/z_03_m3.gif"><BR>
+      切手リスト・製品</A></B><BR>
+      <span class="restock">（2021.07.17）</span><BR>
+      </TD>
+      <TD>
+      <B><A href="howtoorder.html"><IMG src="image/z_03_m3.gif"><BR>
+      ご注文方法・送料など</A></B><BR>
+      <BR>
+      </TD>
+      <TD>
+      <B><A href="sys-hajimete.html"><IMG src="image/z_03_m3.gif"><BR>
+      はじめてのお客様へ</A></B><BR>
+      <span class="restock"></span><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD>
+      <B><A href="lighthouse_info.htm"><IMG src="image/z_03_m3.gif"><BR>
+      ライトハウス・JPS製品<br></b></a>
+      <span class="restock">（2024.06.11)</span><BR>
+      <BR>
+      </TD>
+      <TD>
+      <B><A href="address.html"><IMG src="image/z_03_m3.gif"><BR>
+      連絡先</A></B><BR><br>
+      <BR>
+      </TD>
+      <TD>
+      <B><A href="link.html"><IMG src="image/z_03_m3.gif"><BR>
+      リンク</A></B><BR><br>
+      <BR>
+      </TD>
+    </TR>
+</TABLE></div>
+<BR>
+<BR>
+<IMG src="image/b_ani008.gif"><BR>
+<A href="mailto:sunsetweb@tokyo.email.ne.jp"><B>メール</B></A><BR>
+<BR>
+last modified<BR>
+<span class="restock">2024.01.05（一部のみ更新）</span><BR>
+<BR>
+<br>
+<BR>
+<br>
+
+2013年に先代店主が亡くなりました。<br>
+お知らせは<A href="huhou.html">こちら</a>です。<br>
+<br>
+<IMG src="image/trav_l2.gif" alt="ライン"><BR>
+</section>
+</div>
+</main>
+<footer class="site-footer">
+<p>ご注文：sunsetweb@tokyo.email.ne.jp ／ FAX 03-3717-9614（24時間受信）</p>
+<p>価格はすべて税込です。1回のご注文は1,000円以上でお願いいたします。</p>
+</footer>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/data/stamps-data.js" defer></script>
+<script src="assets/data/gazou-index.js" defer></script>
+<script src="assets/js/catalog.js" defer></script>
+</body>
+</html>

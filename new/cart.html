@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ショッピングカート | サンセットスタンプ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Shippori+Mincho:wght@600;800&display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/catalog.css">
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ</a>
+<header class="site-header">
+<a class="site-brand" href="index.html">サンセットスタンプ <small>海外切手の通信販売</small></a>
+<nav class="site-nav" aria-label="メインメニュー"><a href="index.html">トップ</a><a href="news.html">おしらせ</a><a href="list/index.html">切手リスト・製品</a><a href="howtoorder.html">ご注文方法</a><a href="address.html">連絡先</a><a href="sys-tokuchou.html">当店について</a><details class="nav-more"><summary>その他</summary><div class="nav-more-panel"><a href="nyuukai.html">最新リスト謹呈</a><a href="lighthouse_info.htm">ライトハウス・JPS製品</a><a href="sys-hajimete.html">はじめてのお客様へ</a><a href="link.html">リンク</a></div></details></nav>
+<a class="cart-link" href="cart.html" aria-current="page">カート（<span data-cart-count>0</span>）</a>
+</header>
+<main id="main" class="container">
+<div class="prose cart-page">
+<h1>ショッピングカート</h1>
+<p class="note">リストページの「ショッピングカートを利用する」から移動してきた場合、リスト番号が自動で入力されます。<br>
+商品コードと数量を入力して「カートに追加」を押してください。</p>
+<p id="cart-notice" class="catalog-warning" role="alert" hidden></p>
+<p id="save-alert" class="catalog-warning" role="alert" hidden></p>
+<form id="add-form" class="filter-bar no-print" aria-label="カートに追加">
+<div class="field"><label for="c-shelf">リスト番号</label><input type="text" id="c-shelf" size="8" maxlength="32" placeholder="例 02688" autocomplete="off"></div>
+<div class="field"><label for="c-code">商品コード</label><input type="text" id="c-code" size="12" maxlength="64" placeholder="例 BQ205" autocomplete="off"></div>
+<div class="field"><label for="c-qty">数量（1～5）</label><input type="number" id="c-qty" class="qty" min="1" max="5" step="1" value="1" inputmode="numeric"></div>
+<button type="submit" class="btn btn-primary">カートに追加</button>
+</form>
+<p id="add-msg" class="status-msg no-print" aria-live="polite"></p>
+<h2>カート内容</h2>
+<div class="table-scroll" id="cart-table-wrap" role="region" aria-label="カート内容" tabindex="0">
+<table id="cart-table">
+<thead><tr><th scope="col">リスト番号</th><th scope="col">商品コード</th><th scope="col">数量</th><th scope="col" class="no-print">操作</th></tr></thead>
+<tbody id="cart-body"></tbody>
+</table>
+</div>
+<p id="empty-msg" class="note">カートは空です。</p>
+<p id="sync-msg" class="status-msg no-print" aria-live="polite"></p>
+<div class="cart-actions no-print">
+<button type="button" id="btn-mail" class="btn btn-primary">メールで注文</button>
+<button type="button" id="btn-print" class="btn btn-ghost">印刷してFAX</button>
+<button type="button" id="btn-clear" class="btn btn-ghost">カートを空にする</button>
+</div>
+<div id="confirm-bar" class="confirm-bar no-print" role="group" aria-label="カートを空にする確認" hidden>
+<p>カートの中身をすべて削除します。よろしいですか？</p>
+<button type="button" id="confirm-yes" class="btn btn-primary">本当に空にする</button>
+<button type="button" id="confirm-no" class="btn btn-ghost">やめる</button>
+</div>
+<p id="mail-msg" class="status-msg no-print" aria-live="polite"></p>
+<div id="mail-fallback" class="mail-fallback no-print" hidden>
+<label for="mail-text">注文内容（コピーしてメールに貼り付けてください）</label>
+<textarea id="mail-text" readonly rows="10"></textarea>
+<button type="button" id="btn-copy" class="btn btn-ghost">注文内容をコピー</button>
+<p id="copy-msg" class="status-msg" aria-live="polite"></p>
+</div>
+<div class="order-notes">
+<p>送信先メール: sunsetweb@tokyo.email.ne.jp<br>
+FAX専用: 03-3717-9614（24時間受信可）<br>
+※ 1回のご注文は 1,000 円以上でお願いいたします。<br>
+※ 価格はすべて税込です。<br>
+※ ご注文後、通常3日以内に確認メールをお送りします。<br>
+※ 数量は1回の追加につき5までです。5を超えるご注文は、同じ商品を複数回追加してください。</p>
+</div>
+<div class="print-only fax-sender">
+<p>お名前：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+<p>ご住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+<p>お電話：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+</div>
+<p class="no-print back-link"><a href="index.html">切手を探すページに戻る</a></p>
+
+</div>
+</main>
+<footer class="site-footer">
+<p>ご注文：sunsetweb@tokyo.email.ne.jp ／ FAX 03-3717-9614（24時間受信）</p>
+<p>価格はすべて税込です。1回のご注文は1,000円以上でお願いいたします。</p>
+</footer>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/cart-page.js" defer></script>
+</body>
+</html>

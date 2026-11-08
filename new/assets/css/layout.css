@@ -1,0 +1,60 @@
+/* Layout additions loaded after base.css: header "その他" disclosure (no JS). */
+
+.site-nav { align-items: center; }
+
+.nav-more { position: relative; }
+.nav-more > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 12px;
+  color: #FFFFFF;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+.nav-more > summary::-webkit-details-marker { display: none; }
+.nav-more > summary::after {
+  content: "";
+  width: 7px; height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.nav-more[open] > summary::after { transform: translateY(2px) rotate(-135deg); }
+.nav-more > summary:hover { text-decoration: underline; text-underline-offset: 6px; }
+.nav-more > summary:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+
+/* Open panel: a surface-coloured box, so links use the dark accent colour. */
+.nav-more-panel {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 50;
+  min-width: 15em;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(43, 27, 23, 0.25);
+}
+.site-nav .nav-more-panel a {
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-sm);
+}
+.site-nav .nav-more-panel a:hover { color: #7C2D12; background: var(--color-badge-bg); text-decoration: underline; }
+.site-nav .nav-more-panel a:focus-visible { outline-color: var(--color-accent-strong); }
+
+@media (max-width: 640px) {
+  .nav-more { flex-basis: 100%; }
+  .nav-more-panel { position: static; margin-top: var(--space-1); box-shadow: none; }
+}
+
+/* Page spacing: titles must not touch the header */
+main.container { padding-top: var(--space-5); padding-bottom: var(--space-6); }
+.prose > :first-child { margin-top: 0; }
