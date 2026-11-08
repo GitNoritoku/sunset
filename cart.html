@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>ショッピングカート</title>
+<style>
+body { font-family: "MS PGothic", "Meiryo", sans-serif; background:#FFFFCC; margin:20px; }
+h1 { color:#FF33FF; }
+table { border-collapse:collapse; width:100%; max-width:720px; }
+th,td { border:1px solid #999; padding:6px; }
+th { background:#CCFFCC; }
+input { padding:4px; }
+.btn { background:#FF33FF; color:#fff; border:none; padding:8px 14px; cursor:pointer; margin:4px; }
+.btn2 { background:#66CCFF; color:#000; border:none; padding:8px 14px; cursor:pointer; margin:4px; }
+.note { font-size:13px; color:#333; }
+</style>
+</head>
+<body>
+<center>
+<h1>ショッピングカート</h1>
+<p class="note">リストページの「ショッピングカートを利用する」から移動してきた場合、リスト番号が自動で入力されます。<br>
+商品コードと数量を入力して「カートに追加」を押してください。</p>
+
+<form id="addForm">
+  リスト番号: <input type="text" id="shelf" size="8" placeholder="例 02688">
+  商品コード: <input type="text" id="code" size="12" placeholder="例 BQ205">
+  数量: <input type="number" id="qty" min="1" max="5" value="1" size="3">
+  <button type="submit" class="btn">カートに追加</button>
+</form>
+
+<h2>カート内容</h2>
+<table id="cartTable">
+  <thead><tr><th>リスト番号</th><th>商品コード</th><th>数量</th><th>操作</th></tr></thead>
+  <tbody></tbody>
+</table>
+<p id="emptyMsg" class="note">カートは空です。</p>
+
+<div>
+  <button class="btn2" onclick="sendMail()">注文内容をメールで送る</button>
+  <button class="btn2" onclick="window.print()">印刷してFAXで送る</button>
+  <button class="btn" onclick="clearCart()">カートを空にする</button>
+</div>
+
+<p class="note">
+送信先メール: sunsetweb@tokyo.email.ne.jp<br>
+FAX専用: 03-3717-9614（24時間受信可）<br>
+※ 1回のご注文は 1,000 円以上でお願いいたします。
+</p>
+
+<p><a href="index1.html">メニュー画面に戻る</a></p>
+</center>
+
+<script>
+(function(){
+  var KEY='sunset_cart_v1';
+  function load(){ try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];} }
+  function save(c){ localStorage.setItem(KEY, JSON.stringify(c)); }
+  function render(){
+    var cart=load();
+    var tb=document.querySelector('#cartTable tbody');
+    tb.innerHTML='';
+    if(cart.length===0){ document.getElementById('emptyMsg').style.display='block'; return; }
+    document.getElementById('emptyMsg').style.display='none';
+    cart.forEach(function(item,idx){
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td>'+item.shelf+'</td><td>'+item.code+'</td><td>'+item.qty+'</td>'+
+        '<td><button onclick="removeItem('+idx+')">削除</button></td>';
+      tb.appendChild(tr);
+    });
+  }
+  window.removeItem=function(idx){ var c=load(); c.splice(idx,1); save(c); render(); };
+  window.clearCart=function(){ if(confirm('カートを空にしますか？')){ save([]); render(); } };
+  window.sendMail=function(){
+    var cart=load();
+    if(cart.length===0){ alert('カートが空です。'); return; }
+    var body='以下の内容で注文いたします。%0D%0A%0D%0A';
+    cart.forEach(function(it){ body += 'リスト番号: '+it.shelf+' / 商品コード: '+it.code+' / 数量: '+it.qty+'%0D%0A'; });
+    body += '%0D%0A氏名:%0D%0A住所:%0D%0A電話:%0D%0A';
+    var href='mailto:sunsetweb@tokyo.email.ne.jp?subject='+encodeURIComponent('注文')+'&body='+body;
+    window.location.href=href;
+  };
+  document.getElementById('addForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var shelf=document.getElementById('shelf').value.trim();
+    var code=document.getElementById('code').value.trim();
+    var qty=parseInt(document.getElementById('qty').value,10);
+    if(!code){ alert('商品コードを入力してください。'); return; }
+    if(!qty||qty<1||qty>5){ alert('数量は1～5で入力してください。'); return; }
+    var cart=load();
+    cart.push({shelf:shelf||'(未指定)', code:code, qty:qty});
+    save(cart);
+    render();
+    document.getElementById('code').value='';
+  });
+  // auto-fill shelf from query
+  var params=new URLSearchParams(window.location.search);
+  var sh=params.get('shelf')||params.get('SHELF_ID');
+  if(sh){ document.getElementById('shelf').value=sh; }
+  render();
+})();
+</script>
+</body>
+</html>
