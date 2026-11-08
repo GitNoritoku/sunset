@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
-<title>ƒVƒ‡ƒbƒsƒ“ƒOƒJ[ƒg</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ã‚·ãƒ§ãƒƒãƒ”ãƒ³ã‚°ã‚«ãƒ¼ãƒˆ</title>
 <style>
 body { font-family: "MS PGothic", "Meiryo", sans-serif; background:#FFFFCC; margin:20px; }
 h1 { color:#FF33FF; }
@@ -17,37 +17,37 @@ input { padding:4px; }
 </head>
 <body>
 <center>
-<h1>ƒVƒ‡ƒbƒsƒ“ƒOƒJ[ƒg</h1>
-<p class="note">ƒŠƒXƒgƒy[ƒW‚ÌuƒVƒ‡ƒbƒsƒ“ƒOƒJ[ƒg‚ğ—˜—p‚·‚év‚©‚çˆÚ“®‚µ‚Ä‚«‚½ê‡AƒŠƒXƒg”Ô†‚ª©“®‚Å“ü—Í‚³‚ê‚Ü‚·B<br>
-¤•iƒR[ƒh‚Æ”—Ê‚ğ“ü—Í‚µ‚ÄuƒJ[ƒg‚É’Ç‰Áv‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B</p>
+<h1>ã‚·ãƒ§ãƒƒãƒ”ãƒ³ã‚°ã‚«ãƒ¼ãƒˆ</h1>
+<p class="note">ãƒªã‚¹ãƒˆãƒšãƒ¼ã‚¸ã®ã€Œã‚·ãƒ§ãƒƒãƒ”ãƒ³ã‚°ã‚«ãƒ¼ãƒˆã‚’åˆ©ç”¨ã™ã‚‹ã€ã‹ã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã€ãƒªã‚¹ãƒˆç•ªå·ãŒè‡ªå‹•ã§å…¥åŠ›ã•ã‚Œã¾ã™ã€‚<br>
+å•†å“ã‚³ãƒ¼ãƒ‰ã¨æ•°é‡ã‚’å…¥åŠ›ã—ã¦ã€Œã‚«ãƒ¼ãƒˆã«è¿½åŠ ã€ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚</p>
 
 <form id="addForm">
-  ƒŠƒXƒg”Ô†: <input type="text" id="shelf" size="8" placeholder="—á 02688">
-  ¤•iƒR[ƒh: <input type="text" id="code" size="12" placeholder="—á BQ205">
-  ”—Ê: <input type="number" id="qty" min="1" max="5" value="1" size="3">
-  <button type="submit" class="btn">ƒJ[ƒg‚É’Ç‰Á</button>
+  ãƒªã‚¹ãƒˆç•ªå·: <input type="text" id="shelf" size="8" placeholder="ä¾‹ 02688">
+  å•†å“ã‚³ãƒ¼ãƒ‰: <input type="text" id="code" size="12" placeholder="ä¾‹ BQ205">
+  æ•°é‡: <input type="number" id="qty" min="1" max="5" value="1" size="3">
+  <button type="submit" class="btn">ã‚«ãƒ¼ãƒˆã«è¿½åŠ </button>
 </form>
 
-<h2>ƒJ[ƒg“à—e</h2>
+<h2>ã‚«ãƒ¼ãƒˆå†…å®¹</h2>
 <table id="cartTable">
-  <thead><tr><th>ƒŠƒXƒg”Ô†</th><th>¤•iƒR[ƒh</th><th>”—Ê</th><th>‘€ì</th></tr></thead>
+  <thead><tr><th>ãƒªã‚¹ãƒˆç•ªå·</th><th>å•†å“ã‚³ãƒ¼ãƒ‰</th><th>æ•°é‡</th><th>æ“ä½œ</th></tr></thead>
   <tbody></tbody>
 </table>
-<p id="emptyMsg" class="note">ƒJ[ƒg‚Í‹ó‚Å‚·B</p>
+<p id="emptyMsg" class="note">ã‚«ãƒ¼ãƒˆã¯ç©ºã§ã™ã€‚</p>
 
 <div>
-  <button class="btn2" onclick="sendMail()">’•¶“à—e‚ğƒ[ƒ‹‚Å‘—‚é</button>
-  <button class="btn2" onclick="window.print()">ˆóü‚µ‚ÄFAX‚Å‘—‚é</button>
-  <button class="btn" onclick="clearCart()">ƒJ[ƒg‚ğ‹ó‚É‚·‚é</button>
+  <button class="btn2" onclick="sendMail()">æ³¨æ–‡å†…å®¹ã‚’ãƒ¡ãƒ¼ãƒ«ã§é€ã‚‹</button>
+  <button class="btn2" onclick="window.print()">å°åˆ·ã—ã¦FAXã§é€ã‚‹</button>
+  <button class="btn" onclick="clearCart()">ã‚«ãƒ¼ãƒˆã‚’ç©ºã«ã™ã‚‹</button>
 </div>
 
 <p class="note">
-‘—Mæƒ[ƒ‹: sunsetweb@tokyo.email.ne.jp<br>
-FAXê—p: 03-3717-9614i24ŠÔóM‰Âj<br>
-¦ 1‰ñ‚Ì‚²’•¶‚Í 1,000 ‰~ˆÈã‚Å‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B
+é€ä¿¡å…ˆãƒ¡ãƒ¼ãƒ«: sunsetweb@tokyo.email.ne.jp<br>
+FAXå°‚ç”¨: 03-3717-9614ï¼ˆ24æ™‚é–“å—ä¿¡å¯ï¼‰<br>
+â€» 1å›ã®ã”æ³¨æ–‡ã¯ 1,000 å††ä»¥ä¸Šã§ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚
 </p>
 
-<p><a href="index1.html">ƒƒjƒ…[‰æ–Ê‚É–ß‚é</a></p>
+<p><a href="index1.html">ãƒ¡ãƒ‹ãƒ¥ãƒ¼ç”»é¢ã«æˆ»ã‚‹</a></p>
 </center>
 
 <script>
@@ -64,19 +64,19 @@ FAXê—p: 03-3717-9614i24ŠÔóM‰Âj<br>
     cart.forEach(function(item,idx){
       var tr=document.createElement('tr');
       tr.innerHTML='<td>'+item.shelf+'</td><td>'+item.code+'</td><td>'+item.qty+'</td>'+
-        '<td><button onclick="removeItem('+idx+')">íœ</button></td>';
+        '<td><button onclick="removeItem('+idx+')">å‰Šé™¤</button></td>';
       tb.appendChild(tr);
     });
   }
   window.removeItem=function(idx){ var c=load(); c.splice(idx,1); save(c); render(); };
-  window.clearCart=function(){ if(confirm('ƒJ[ƒg‚ğ‹ó‚É‚µ‚Ü‚·‚©H')){ save([]); render(); } };
+  window.clearCart=function(){ if(confirm('ã‚«ãƒ¼ãƒˆã‚’ç©ºã«ã—ã¾ã™ã‹ï¼Ÿ')){ save([]); render(); } };
   window.sendMail=function(){
     var cart=load();
-    if(cart.length===0){ alert('ƒJ[ƒg‚ª‹ó‚Å‚·B'); return; }
-    var body='ˆÈ‰º‚Ì“à—e‚Å’•¶‚¢‚½‚µ‚Ü‚·B%0D%0A%0D%0A';
-    cart.forEach(function(it){ body += 'ƒŠƒXƒg”Ô†: '+it.shelf+' / ¤•iƒR[ƒh: '+it.code+' / ”—Ê: '+it.qty+'%0D%0A'; });
-    body += '%0D%0A–¼:%0D%0AZŠ:%0D%0A“d˜b:%0D%0A';
-    var href='mailto:sunsetweb@tokyo.email.ne.jp?subject='+encodeURIComponent('’•¶')+'&body='+body;
+    if(cart.length===0){ alert('ã‚«ãƒ¼ãƒˆãŒç©ºã§ã™ã€‚'); return; }
+    var body='ä»¥ä¸‹ã®å†…å®¹ã§æ³¨æ–‡ã„ãŸã—ã¾ã™ã€‚%0D%0A%0D%0A';
+    cart.forEach(function(it){ body += 'ãƒªã‚¹ãƒˆç•ªå·: '+it.shelf+' / å•†å“ã‚³ãƒ¼ãƒ‰: '+it.code+' / æ•°é‡: '+it.qty+'%0D%0A'; });
+    body += '%0D%0Aæ°å:%0D%0Aä½æ‰€:%0D%0Aé›»è©±:%0D%0A';
+    var href='mailto:sunsetweb@tokyo.email.ne.jp?subject='+encodeURIComponent('æ³¨æ–‡')+'&body='+body;
     window.location.href=href;
   };
   document.getElementById('addForm').addEventListener('submit',function(e){
@@ -84,10 +84,10 @@ FAXê—p: 03-3717-9614i24ŠÔóM‰Âj<br>
     var shelf=document.getElementById('shelf').value.trim();
     var code=document.getElementById('code').value.trim();
     var qty=parseInt(document.getElementById('qty').value,10);
-    if(!code){ alert('¤•iƒR[ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B'); return; }
-    if(!qty||qty<1||qty>5){ alert('”—Ê‚Í1`5‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B'); return; }
+    if(!code){ alert('å•†å“ã‚³ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚'); return; }
+    if(!qty||qty<1||qty>5){ alert('æ•°é‡ã¯1ï½5ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚'); return; }
     var cart=load();
-    cart.push({shelf:shelf||'(–¢w’è)', code:code, qty:qty});
+    cart.push({shelf:shelf||'(æœªæŒ‡å®š)', code:code, qty:qty});
     save(cart);
     render();
     document.getElementById('code').value='';
